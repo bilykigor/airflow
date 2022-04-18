@@ -53,6 +53,8 @@ x-airflow-common:
       - variables.env
   environment:
     &airflow-common-env
+    AIRFLOW__CORE__PARALLELISM: 3
+    AIRFLOW__CORE__DAG_CONCURRENCY: 2
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
     AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
